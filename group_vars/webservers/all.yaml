@@ -1,0 +1,4 @@
+---
+http_port: 8080
+root_dir: /etc/nginx/
+server_name: "{{ ansible_facts['nodename'] }}"
