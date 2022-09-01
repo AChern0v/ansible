@@ -1,0 +1,17 @@
+- hosts: webservers
+  gather_facts: no
+
+  tasks:
+    - name: Install git
+      ansible.builtin.apt:
+        name: git
+        state: present
+        update_cache: true
+      become: yes
+      tags: install_git
+
+    - name: Update cache
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
+      tags: update_cache
